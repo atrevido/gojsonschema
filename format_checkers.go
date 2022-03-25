@@ -230,6 +230,7 @@ func (f DateTimeFormatChecker) IsFormat(input interface{}) bool {
 	}
 
 	formats := []string{
+		"2006-01-02T15:04:05.999", // Real ISO 8601 Combination
 		"15:04:05",
 		"15:04:05Z07:00",
 		"2006-01-02",

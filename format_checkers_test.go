@@ -19,6 +19,17 @@ func TestUUIDFormatCheckerIsFormat(t *testing.T) {
 	assert.False(t, checker.IsFormat("g1234567-89ab-cdef-0123-456789abcdef"))
 }
 
+func TestDateTimeFormatCheckerIsFormat(t *testing.T) {
+	checker := DateTimeFormatChecker{}
+
+	assert.True(t, checker.IsFormat("2022-02-10T15:32:07"))
+	assert.True(t, checker.IsFormat("2022-02-10T15:32:07.0"))
+	assert.True(t, checker.IsFormat("2022-02-10T15:32:07.00"))
+	assert.True(t, checker.IsFormat("2022-02-10T15:32:07.000"))
+
+	assert.False(t, checker.IsFormat("not-a-date"))
+}
+
 func TestURIReferenceFormatCheckerIsFormat(t *testing.T) {
 	checker := URIReferenceFormatChecker{}
 
